@@ -10,7 +10,7 @@ export const lightTheme = createTheme({
       main: '#dc004e',
     },
     text: {
-      primary: '#ffffff',
+      primary: '#020202',
       secondary: '#030f18', // Use for links
     },
     background: {

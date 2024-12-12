@@ -1,22 +1,18 @@
 'use client';
 
+import { Roboto } from 'next/font/google';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createCache from '@emotion/cache';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar/Navbar';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from '@/styles/theme';
 import { useState } from 'react';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const roboto = Roboto({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-roboto',
 });
 
 const clientSideCache = createCache({ key: 'css', prepend: true });
@@ -38,8 +34,8 @@ export default function RootLayout({
 
   return (
     <CacheProvider value={emotionCache}>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <html lang="en" className={roboto.variable}>
+        <body>
           <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
             <CssBaseline />
             <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
